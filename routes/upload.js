@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
     if (!req.body.count)
         res.send('count is not specified');
     else
-        res.send('done uploading ' + req.body + ' item(s)');
+        res.send('done uploading ' + req.body.count + ' item(s)');
 });
 
 module.exports = router;
