@@ -1,7 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
-router.get('/upload', function(req, res, next) {
-    res.send(req.body);
+/* GET uploads */
+router.get('/', function(req, res, next) {
+    if (!req.body.count)
+        res.send('count is not specified');
+    else
+        res.send('done uploading ' + req.body + ' item(s)');
 });
+
+module.exports = router;
