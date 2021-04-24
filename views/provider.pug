@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    form(action='/upload', method='post')
+        div(data-role='fieldcontain')
+            fieldset(data-role='controlgroup')
+                label(for='provider') Name
+                    input(id='provider', type='text', value='A', name='provider')
+                label(for='count') Items count
+                    input(id='count', type='number', value=1, name='count')
+            div(data-role='fieldcontain')
+                input(type='submit', value='Submit', data-transition='fade', data-theme='c')

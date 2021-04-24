@@ -2,14 +2,16 @@ var express = require('express');
 var router = express.Router();
 var db = require('../db')
 
-/* GET downloads */
-router.get('/', function(req, res, next) {
-    if (!req.query.count)
-        res.send('error: count is not specified');
+/* POST downloads */
+router.post('/', function(req, res, next) {
+    if (!req.body.client)
+        res.send('error: client is not specified');
     else {
-        if (db.download(req.query.count) < 0)
+        db.client(req.body.client, req.body.count);
+        var count = db.download(req.body.client)
+        if (count < 0)
             res.send('error: not enough items');
-        res.send(`done downloading ${req.query.count} item(s)
+        res.send(`done downloading ${req.body.count} item(s) by client ${req.body.client}
                 <br>items in warehouse: ${db.count}`);
     }
 });

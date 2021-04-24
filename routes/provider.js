@@ -1,9 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var db = require('../db')
 
-/* GET home page. */
+/* Render provider form */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Warehouse Management App' });
+    res.render('provider');
 });
 
 module.exports = router;
