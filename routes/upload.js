@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
         res.send('error: count is not specified');
     else {
         if (db.upload(req.query.count) < 0)
-            res.send('warehouse is full');
+            res.send('error: warehouse is full');
         res.send(`done uploading ${req.query.count} item(s)
                 <br>items in warehouse: ${db.count}`);
     }
